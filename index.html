@@ -35,40 +35,287 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "AutomotiveBusiness",
-  "name": "Itamaraty Estética Automotiva",
-  "image": "assets/images/shot-hero-black-supercar.webp",
-  "logo": "assets/images/logo.webp",
-  "telephone": "+5519993097721",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Av. Itamarati, 807 — Vila Aeroporto",
-    "addressLocality": "Campinas",
-    "addressRegion": "SP",
-    "postalCode": "13054-150",
-    "addressCountry": "BR"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "565"
-  },
-  "sameAs": [
-    "https://www.instagram.com/itamaraty_autoestetica"
-  ],
-  "areaServed": "Campinas e região",
-  "openingHoursSpecification": [
+  "@graph": [
     {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:00",
-      "closes": "17:30"
+      "@type": ["LocalBusiness", "AutomotiveBusiness", "AutoWash"],
+      "@id": "https://SEU-DOMINIO.com.br/#business",
+      "name": "Itamaraty Estética Automotiva",
+      "description": "Detalhamento automotivo premium em Campinas/SP: vitrificação cerâmica, polimento técnico, higienização, restauração de faróis e de couro, e customização de bancos.",
+      "url": "https://SEU-DOMINIO.com.br/",
+      "telephone": "+5519993097721",
+      "priceRange": "$$",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://SEU-DOMINIO.com.br/assets/images/shot-hero-black-supercar.webp",
+        "width": 1920,
+        "height": 1080,
+        "caption": "Detalhamento automotivo premium — Itamaraty Estética Automotiva"
+      },
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://SEU-DOMINIO.com.br/assets/images/logo.webp",
+        "width": 900,
+        "height": 245,
+        "caption": "Logotipo Itamaraty Estética Automotiva"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Itamarati, 807 — Vila Aeroporto",
+        "addressLocality": "Campinas",
+        "addressRegion": "SP",
+        "postalCode": "13054-150",
+        "addressCountry": "BR"
+      },
+      "hasMap": "https://www.google.com/maps?q=Av.+Itamarati,+807+-+Vila+Aeroporto,+Campinas+-+SP,+13054-150",
+      "areaServed": {
+        "@type": "City",
+        "name": "Campinas"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday"],
+          "opens": "08:00",
+          "closes": "13:00"
+        }
+      ],
+      "sameAs": ["https://www.instagram.com/itamaraty_autoestetica"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "565",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Ricardo Miranda" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "O profissional Anderson foi extremamente atencioso desde o primeiro contato. A avaliação do carro foi muito bem conduzida, com cada etapa do processo explicada antes de começar. Fizemos lavagem de chassi, higienização, descontaminação de pintura e polimento técnico. Recomendo o serviço!",
+          "publisher": { "@type": "Organization", "name": "Google" }
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Nerivan Melo" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Fiquei impressionado com o resultado! O serviço foi impecável, desde a limpeza até o acabamento final. Meu carro ficou com um brilho incrível, parecia que tinha acabado de sair da concessionária.",
+          "publisher": { "@type": "Organization", "name": "Google" }
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Isabella Victória" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "O dono, Anderson, é uma pessoa ímpar, realmente de confiança, e dá todo o suporte possível mesmo em caso de problemas. Muito cuidadoso e caprichoso. Será recomendado!",
+          "publisher": { "@type": "Organization", "name": "Google" }
+        }
+      ],
+      "award": "Profissional do Ano — Detailerfest 2025",
+      "memberOf": {
+        "@type": "Organization",
+        "name": "IDA — International Detailing Association"
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "Certificação", "value": "Colortek Leather" },
+        { "@type": "PropertyValue", "name": "Certificação", "value": "IDC — International Detailing Congress" },
+        { "@type": "PropertyValue", "name": "Certificação", "value": "GZOX / Prospec" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços Itamaraty Estética Automotiva",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lavagem Técnica",
+              "description": "Descontaminação completa da carroceria com pH neutro e técnica de dois baldes, sem risco à pintura.",
+              "provider": { "@id": "https://SEU-DOMINIO.com.br/#business" },
+              "areaServed": "Campinas e região"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lavagem de Motor e Chassi",
+              "description": "Limpeza segura do compartimento do motor e da parte inferior, protegendo componentes elétricos.",
+              "provider": { "@id": "https://SEU-DOMINIO.com.br/#business" },
+              "areaServed": "Campinas e região"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Higienização Interna",
+              "description": "Extração profunda de ácaros, odores e manchas em bancos, forração, teto e carpete.",
+              "provider": { "@id": "https://SEU-DOMINIO.com.br/#business" },
+              "areaServed": "Campinas e região"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Proteção de Pintura (Polimento, Cristalização e Vitrificação Cerâmica)",
+              "description": "Polimento, cristalização, vitrificação cerâmica e enceramento — protocolo definido pela espessura real de verniz medida antes de iniciar.",
+              "provider": { "@id": "https://SEU-DOMINIO.com.br/#business" },
+              "areaServed": "Campinas e região"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Restauração de Faróis",
+              "description": "Remoção da oxidação amarelada do policarbonato com lixamento técnico e selagem.",
+              "provider": { "@id": "https://SEU-DOMINIO.com.br/#business" },
+              "areaServed": "Campinas e região"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Restauração de Couro",
+              "description": "Tratamento com linha Colortek Leather para rachaduras, desbotamento e ressecamento.",
+              "provider": { "@id": "https://SEU-DOMINIO.com.br/#business" },
+              "areaServed": "Campinas e região"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Serviços para Motos",
+              "description": "Lavagem técnica, polimento e proteção adaptados à geometria e aos materiais da moto.",
+              "provider": { "@id": "https://SEU-DOMINIO.com.br/#business" },
+              "areaServed": "Campinas e região"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Customização de Bancos",
+              "description": "Substituição do revestimento original de tecido por couro sob medida, com costura personalizada.",
+              "provider": { "@id": "https://SEU-DOMINIO.com.br/#business" },
+              "areaServed": "Campinas e região"
+            }
+          }
+        ]
+      }
     },
     {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Saturday"],
-      "opens": "08:00",
-      "closes": "13:00"
+      "@type": "FAQPage",
+      "@id": "https://SEU-DOMINIO.com.br/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quanto tempo leva um detalhamento completo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Varia conforme o estado do veículo e o protocolo escolhido — de uma lavagem técnica até uma vitrificação completa. O prazo exato é definido na avaliação, antes de qualquer execução."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A vitrificação substitui o polimento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. O polimento corrige a superfície (risco, opacidade); a vitrificação protege o que foi corrigido. Quando a pintura tem imperfeições, o polimento vem antes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A vitrificação cerâmica risca ou desgasta com o tempo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A camada cerâmica protege contra contaminação e oxidação, mas não substitui cuidado na lavagem. Riscos superficiais de uso continuam possíveis — a proteção reduz o dano, não o elimina."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vocês atendem carros com pintura já danificada ou riscada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. A avaliação técnica identifica o nível de dano e indica se o caso pede polimento corretivo antes de qualquer proteção."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "É seguro higienizar bancos de couro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim, com produtos específicos da linha Colortek Leather, formulados para não ressecar ou descolorir o couro original."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Motos recebem o mesmo protocolo que carros?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. Motos têm geometria, pintura e materiais diferentes — o protocolo é adaptado especificamente para elas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto tempo dura a proteção de cristalização ou vitrificação?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende do protocolo aplicado e da rotina de uso do carro. Esse prazo é explicado na avaliação, junto com o protocolo indicado para o seu caso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Preciso agendar com antecedência?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Recomendado, especialmente para protocolos completos de proteção. Fale pelo WhatsApp para confirmar a disponibilidade mais próxima."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funciona o orçamento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Enviado após entender o veículo e a necessidade — pelo WhatsApp, com fotos, ou na avaliação presencial no estúdio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Onde fica o estúdio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Av. Itamarati, 807 — Vila Aeroporto, Campinas/SP. Atendimento a Campinas e região."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://SEU-DOMINIO.com.br/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://SEU-DOMINIO.com.br/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Itamaraty Estética Automotiva — Campinas/SP",
+          "item": "https://SEU-DOMINIO.com.br/"
+        }
+      ]
     }
   ]
 }
