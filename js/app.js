@@ -3,9 +3,13 @@
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const FRAME_COUNT = 600;
+  const FRAME_COUNT = 300;
   const FRAME_SPEED = 1.0;
   const FRAME_PATH = (i) => `frames/frame_${String(i).padStart(4, '0')}.webp`;
+
+  // Batch loading: só uma fatia inicial dos frames bloqueia o loader.
+  // O resto carrega em segundo plano depois que a página já está usável.
+  const RELEASE_COUNT = Math.min(FRAME_COUNT, Math.max(20, Math.ceil(FRAME_COUNT * 0.3)));
 
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
@@ -19,11 +23,12 @@
 
   const frames = new Array(FRAME_COUNT);
   let loadedCount = 0;
+  let lastValidFrame = 0;
   let currentFrame = -1;
   let bgColor = '#08090b';
 
   function updateLoaderUI() {
-    const pct = Math.round((loadedCount / FRAME_COUNT) * 100);
+    const pct = Math.round((Math.min(loadedCount, RELEASE_COUNT) / RELEASE_COUNT) * 100);
     loaderBar.style.width = pct + '%';
     loaderPercent.textContent = pct + '%';
   }
@@ -35,6 +40,9 @@
         frames[i - 1] = img;
         loadedCount++;
         updateLoaderUI();
+        // Se o usuário já rolou até aqui e o freeze-frame estava
+        // segurando um frame antigo, atualiza assim que este chegar.
+        if (i - 1 === currentFrame) requestAnimationFrame(() => drawFrame(currentFrame));
         resolve();
       };
       img.onerror = () => {
@@ -55,12 +63,20 @@
     resizeCanvas();
     drawFrame(0);
 
-    const rest = [];
-    for (let i = firstBatch + 1; i <= FRAME_COUNT; i++) rest.push(loadFrame(i));
-    await Promise.all(rest);
+    // Carrega até o limite de liberação (ex: 30% dos frames) e já
+    // desbloqueia a página — o resto continua em segundo plano.
+    const releaseBatch = [];
+    for (let i = firstBatch + 1; i <= RELEASE_COUNT; i++) releaseBatch.push(loadFrame(i));
+    await Promise.all(releaseBatch);
 
     loader.classList.add('is-hidden');
     initAll();
+
+    if (RELEASE_COUNT < FRAME_COUNT) {
+      const background = [];
+      for (let i = RELEASE_COUNT + 1; i <= FRAME_COUNT; i++) background.push(loadFrame(i));
+      Promise.all(background); // não bloqueia — carrega enquanto o usuário navega
+    }
   }
 
   function sampleBgColor(img) {
@@ -82,10 +98,17 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  const IMAGE_SCALE = 0.86;
+  const IMAGE_SCALE = 1;
   function drawFrame(index) {
-    const img = frames[index];
-    if (!img) return;
+    let img = frames[index];
+    if (img) {
+      lastValidFrame = index;
+    } else {
+      // Frame ainda não chegou (carregamento em segundo plano) — segura
+      // no último frame válido em vez de piscar/quebrar a imagem.
+      img = frames[lastValidFrame];
+      if (!img) return;
+    }
     const cw = window.innerWidth, ch = window.innerHeight;
     const iw = img.naturalWidth, ih = img.naturalHeight;
     const scale = Math.max(cw / iw, ch / ih) * IMAGE_SCALE;

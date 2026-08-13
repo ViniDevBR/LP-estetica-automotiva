@@ -19,6 +19,7 @@ Trocar o placeholder `SEU-DOMINIO.com.br` pelo domínio real nos seguintes arqui
   - [ ] Página de parceiro certificado Colortek Leather
   - [ ] Página de parceiro certificado GZOX / Prospec
 - [ ] **Bio curta do Anderson** (dono) na seção "Sobre" — nome, cargo, o que credencia ele tecnicamente. Hoje ele só aparece citado dentro dos depoimentos de clientes.
+- [ ] **Automação Pasta Imagens** — Fazer um .map nas pastas de imagens para gerar os elementos dinamicamente.
 
 ## Outras melhorias sugeridas (menor prioridade)
 
