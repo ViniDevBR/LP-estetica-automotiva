@@ -59,8 +59,8 @@ class ReviewSlider extends HTMLElement {
           justify-content: center;
           transition: border-color 0.2s ease, color 0.2s ease;
         }
-        button.nav:hover { border-color: var(--blue-bright, #7db2ff); color: var(--blue-bright, #7db2ff); }
-        button.nav:focus-visible { outline: 2px solid var(--blue-bright, #7db2ff); outline-offset: 2px; }
+        button.nav:hover { border-color: var(--primary-bright, #f5cc1f); color: var(--primary-bright, #f5cc1f); }
+        button.nav:focus-visible { outline: 2px solid var(--primary-bright, #f5cc1f); outline-offset: 2px; }
         .counter {
           font-family: var(--font-mono, monospace);
           font-size: 0.75rem;
@@ -69,7 +69,7 @@ class ReviewSlider extends HTMLElement {
           min-width: 5.5em;
           text-align: center;
         }
-        .counter strong { color: var(--blue-bright, #7db2ff); font-weight: 600; }
+        .counter strong { color: var(--primary-bright, #f5cc1f); font-weight: 600; }
         @media (prefers-reduced-motion: reduce) {
           .track { transition: none; }
         }

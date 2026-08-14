@@ -25,7 +25,7 @@ class ImageModal extends HTMLElement {
         .backdrop {
           position: absolute;
           inset: 0;
-          background: rgba(8, 9, 11, 0.92);
+          background: var(--void-a92, rgba(8, 9, 11, 0.92));
         }
         figure {
           position: relative;
@@ -70,8 +70,8 @@ class ImageModal extends HTMLElement {
           align-items: center;
           justify-content: center;
         }
-        .close:hover { border-color: var(--blue-bright, #7db2ff); color: var(--blue-bright, #7db2ff); }
-        .close:focus-visible { outline: 2px solid var(--blue-bright, #7db2ff); outline-offset: 3px; }
+        .close:hover { border-color: var(--primary-bright, #f5cc1f); color: var(--primary-bright, #f5cc1f); }
+        .close:focus-visible { outline: 2px solid var(--primary-bright, #f5cc1f); outline-offset: 3px; }
       </style>
       <div class="backdrop" part="backdrop"></div>
       <figure>

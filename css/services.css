@@ -28,7 +28,7 @@ body.service-page { overflow-x: hidden; }
   color: var(--text-dim);
   transition: color 0.2s ease, border-color 0.2s ease;
 }
-.service-back:hover { color: var(--blue-bright); border-color: var(--blue-bright); }
+.service-back:hover { color: var(--primary-bright); border-color: var(--primary-bright); }
 .service-back img { height: 16px; width: auto; display: block; }
 
 /* ---------- HERO (sem header) ---------- */
@@ -151,10 +151,10 @@ before-after-slider { width: 100%; }
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
-.svc-filter-btn:hover { border-color: var(--blue-bright); color: var(--blue-bright); }
+.svc-filter-btn:hover { border-color: var(--primary-bright); color: var(--primary-bright); }
 .svc-filter-btn[aria-pressed="true"] {
-  background: var(--blue-bright);
-  border-color: var(--blue-bright);
+  background: var(--primary-bright);
+  border-color: var(--primary-bright);
   color: var(--void);
 }
 
@@ -186,7 +186,7 @@ before-after-slider { width: 100%; }
 @media (hover: hover) and (pointer: fine) {
   .gallery-tile:hover img { transform: scale(1.08); }
 }
-.gallery-tile:focus-visible { outline: 2px solid var(--blue-bright); outline-offset: -2px; }
+.gallery-tile:focus-visible { outline: 2px solid var(--primary-bright); outline-offset: -2px; }
 
 @media (prefers-reduced-motion: reduce) {
   .gallery-tile img { transition: none; }

@@ -6,6 +6,8 @@
    =================================================================== */
 
 :root {
+  --header-h: 84px; /* fallback; js/app.js mede o valor real do .site-header */
+
   --void: #08090b;
   --graphite: #131519;
   --graphite-2: #1b1e23;
@@ -17,12 +19,12 @@
   --text-dim: #9aa1ab;
   --text-faint: #5b626c;
 
-  --blue: #4a7fc9;
-  --blue-bright: #7db2ff;
-  --blue-bright-hover: #97c2ff;
-  --blue-deep: #152944;
-  --blue-glow: rgba(125, 178, 255, 0.35);
-  --blue-glow-0: rgba(125, 178, 255, 0);
+  --primary: #c9a01a;
+  --primary-bright: #f5cc1f;
+  --primary-bright-hover: #ffdb4d;
+  --primary-deep: #2b2107;
+  --primary-glow: rgba(245, 204, 31, 0.35);
+  --primary-glow-0: rgba(245, 204, 31, 0);
 
   --text-photo-dim: #d3d7dc;
 
@@ -30,6 +32,7 @@
   --void-a60: rgba(8, 9, 11, 0.603);
   --void-a85: rgba(8, 9, 11, 0.85);
   --void-a86: rgba(8, 9, 11, 0.86);
+  --void-a92: rgba(8, 9, 11, 0.92);
 
   --shadow-40: rgba(0, 0, 0, 0.4);
   --shadow-50: rgba(0, 0, 0, 0.5);

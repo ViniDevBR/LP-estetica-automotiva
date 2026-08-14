@@ -31,7 +31,7 @@ img { max-width: 100%; display: block; }
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {
-  outline: 2px solid var(--blue-bright);
+  outline: 2px solid var(--primary-bright);
   outline-offset: 3px;
 }
 
@@ -68,7 +68,7 @@ summary:focus-visible {
 #loader-bar {
   height: 100%;
   width: 0%;
-  background: var(--blue-bright);
+  background: var(--primary-bright);
   transition: width 0.2s ease;
 }
 #loader-percent {
@@ -132,16 +132,16 @@ summary:focus-visible {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0.6rem 1.2rem;
-  border: 1px solid var(--blue);
-  color: var(--blue-bright);
+  border: 1px solid var(--primary);
+  color: var(--primary-bright);
   transition: background 0.25s ease, color 0.25s ease;
   white-space: nowrap;
   animation: cta-pulse 2.6s ease-in-out infinite;
 }
-.nav-cta:hover { background: var(--blue); color: var(--void); }
+.nav-cta:hover { background: var(--primary); color: var(--void); }
 @keyframes cta-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 var(--blue-glow); }
-  50% { box-shadow: 0 0 0 7px var(--blue-glow-0); }
+  0%, 100% { box-shadow: 0 0 0 0 var(--primary-glow); }
+  50% { box-shadow: 0 0 0 7px var(--primary-glow-0); }
 }
 @media (prefers-reduced-motion: reduce) {
   .nav-cta, .btn-primary, .whatsapp-float { animation: none; }
@@ -168,7 +168,7 @@ summary:focus-visible {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 50% at 85% 30%, var(--blue-deep) 0%, transparent 65%);
+    radial-gradient(ellipse 60% 50% at 85% 30%, var(--primary-deep) 0%, transparent 65%);
   opacity: 0.55;
   pointer-events: none;
 }
@@ -192,7 +192,7 @@ summary:focus-visible {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--blue-bright);
+  color: var(--primary-bright);
   margin-bottom: 1.4rem;
 }
 .gauge-tag {
@@ -213,7 +213,7 @@ summary:focus-visible {
 }
 .hero-heading .line { display: block; overflow: hidden; padding-top: 0.1em; margin-top: -0.1em; }
 .hero-heading .word { display: inline-block; }
-.hero-heading .accent { color: var(--blue-bright); }
+.hero-heading .accent { color: var(--primary-bright); }
 
 .hero-tagline {
   font-size: 1.15rem;
@@ -239,7 +239,7 @@ summary:focus-visible {
   position: absolute;
   left: 0; top: 0.45em;
   width: 8px; height: 1px;
-  background: var(--blue-bright);
+  background: var(--primary-bright);
 }
 .hero-ctas {
   display: flex;
@@ -262,16 +262,16 @@ summary:focus-visible {
   transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 .btn-primary {
-  background: var(--blue-bright);
+  background: var(--primary-bright);
   color: var(--void);
   animation: cta-pulse 2.6s ease-in-out infinite;
 }
-.btn-primary:hover { transform: translateY(-2px); background: var(--blue-bright-hover); }
+.btn-primary:hover { transform: translateY(-2px); background: var(--primary-bright-hover); }
 .btn-secondary {
   border-color: var(--hairline-strong);
   color: var(--text);
 }
-.btn-secondary:hover { border-color: var(--blue-bright); color: var(--blue-bright); }
+.btn-secondary:hover { border-color: var(--primary-bright); color: var(--primary-bright); }
 .btn-large { padding: 1.25rem 2.6rem; font-size: 0.95rem; }
 
 .trust-strip {
@@ -296,7 +296,7 @@ summary:focus-visible {
   color: var(--text-faint);
   margin: 0 1rem;
 }
-.stars { color: var(--blue-bright); letter-spacing: 0.1em; margin-right: 0.4em; }
+.stars { color: var(--primary-bright); letter-spacing: 0.1em; margin-right: 0.4em; }
 
 .scroll-indicator {
   position: absolute;
@@ -310,14 +310,14 @@ summary:focus-visible {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--blue-bright);
+  color: var(--primary-bright);
   animation: scroll-label-pulse 1.8s ease-in-out infinite;
 }
 .scroll-arrow {
   position: relative;
   width: 1px;
   height: 36px;
-  background: linear-gradient(var(--blue), transparent);
+  background: linear-gradient(var(--primary), transparent);
   overflow: visible;
 }
 .scroll-arrow::after {
@@ -328,8 +328,8 @@ summary:focus-visible {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--blue-bright);
-  box-shadow: 0 0 6px 1px var(--blue-glow);
+  background: var(--primary-bright);
+  box-shadow: 0 0 6px 1px var(--primary-glow);
   transform: translate(-50%, 0);
   animation: scroll-dot-travel 1.8s ease-in-out infinite;
 }
@@ -375,15 +375,6 @@ summary:focus-visible {
   pointer-events: none;
 }
 
-#dark-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  background: var(--void);
-  opacity: 0;
-  pointer-events: none;
-}
-
 /* ---------- MARQUEE ---------- */
 .marquee-wrap {
   position: fixed;
@@ -412,7 +403,7 @@ summary:focus-visible {
 #scroll-container {
   position: relative;
   z-index: 2;
-  padding: 30vh 0 20vh;
+  padding: 30vh 0 0;
 }
 .scroll-section {
   position: relative;
@@ -446,6 +437,28 @@ summary:focus-visible {
 #depoimentos.align-left { padding-left: 6vw; padding-right: 6vw; }
 #depoimentos .section-inner-wide { max-width: 100%; }
 
+/* FAQ dentro do sticky: mesma quebra — ocupa a largura toda do card em
+   vez de ficar numa coluna estreita com metade da tela vazia. */
+#faq.align-right { padding-left: 6vw; padding-right: 6vw; }
+#faq .section-inner-wide { max-width: 100%; }
+
+/* Depoimentos e FAQ: o header é fixed e sobrepõe o topo do card sticky —
+   sem isso o conteúdo nasce colado nele. padding-top reserva exatamente
+   a altura do header (a área útil vira "100vh - header"), e o flex
+   centraliza o conteúdo dentro do que sobra; "safe center" evita cortar
+   o início quando o conteúdo é mais alto que o espaço disponível. */
+#faq, #depoimentos {
+  padding-top: var(--header-h);
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+}
+#faq .section-inner-wide,
+#depoimentos .section-inner-wide {
+  width: 100%;
+  margin: 0;
+}
+
 .section-heading {
   font-family: var(--font-display);
   font-weight: 800;
@@ -471,12 +484,12 @@ summary:focus-visible {
   margin-top: 0.6rem;
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--blue-bright);
-  border-bottom: 1px solid var(--blue-deep);
+  color: var(--primary-bright);
+  border-bottom: 1px solid var(--primary-deep);
   padding-bottom: 0.2rem;
   transition: border-color 0.25s ease;
 }
-.link-arrow:hover { border-color: var(--blue-bright); }
+.link-arrow:hover { border-color: var(--primary-bright); }
 
 .section-media {
   margin: 1.8rem 0 0.5rem;
@@ -517,7 +530,7 @@ summary:focus-visible {
 }
 @media (hover: hover) and (pointer: fine) {
   .service-card:hover {
-    box-shadow: 0 0 0 1px var(--blue-bright), 0 24px 48px var(--shadow-50);
+    box-shadow: 0 0 0 1px var(--primary-bright), 0 24px 48px var(--shadow-50);
     z-index: 2;
   }
 }
@@ -525,7 +538,7 @@ summary:focus-visible {
   display: block;
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: var(--blue-bright);
+  color: var(--primary-bright);
   letter-spacing: 0.1em;
   margin-bottom: 0.8rem;
 }
@@ -599,8 +612,8 @@ summary:focus-visible {
   font-family: var(--font-display);
   font-weight: 900;
   font-size: 2.4rem;
-  color: var(--blue-deep);
-  -webkit-text-stroke: 1px var(--blue);
+  color: var(--primary-deep);
+  -webkit-text-stroke: 1px var(--primary);
   line-height: 1;
   flex-shrink: 0;
   width: 2.5rem;
@@ -617,6 +630,75 @@ summary:focus-visible {
   color: var(--text-dim);
   margin: 0;
   max-width: 30rem;
+}
+
+#processo {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ---------- STICKY OUTRO (Stats + Depoimentos + FAQ + CTA) ---------- */
+.sticky-outro {
+  position: relative;
+  height: 560vh;
+}
+.sticky-outro-inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  border-top: 20px solid var(--primary);
+  isolation: isolate;
+}
+.sticky-outro-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('../frames/frame_0250.webp');
+  background-size: cover;
+  background-position: center;
+}
+.sticky-outro-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--void);
+  opacity: 0.88;
+}
+section.outro-segment {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  /* Só o segmento ativo pode receber wheel/scroll — sem isso, o último
+     do DOM (#contato) fica sempre por cima capturando o scroll mesmo
+     invisível, e o scroll interno dos outros morre. */
+  pointer-events: none;
+  max-height: 100vh;
+  padding-top: 8vh;
+  padding-bottom: 8vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+  /* "auto" (não "contain"): quando o conteúdo interno acaba de rolar,
+     o wheel precisa encadear pro scroll da página pra avançar o sticky —
+     "contain" prendia o wheel sem escape em segmentos sem overflow
+     (stats/contato) e travava no fim do faq/depoimentos. */
+  overscroll-behavior: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge legado */
+}
+section.outro-segment.is-active {
+  pointer-events: auto;
+}
+section.outro-segment::-webkit-scrollbar { display: none; }
+
+@media (max-width: 768px) {
+  .sticky-outro-inner { border-top-width: 12px; }
 }
 
 /* ---------- STATS ---------- */
@@ -652,7 +734,7 @@ summary:focus-visible {
 .stat-suffix {
   font-family: var(--font-mono);
   font-size: 0.9rem;
-  color: var(--blue-bright);
+  color: var(--primary-bright);
   margin-top: -0.3rem;
 }
 .stat-label {
@@ -668,7 +750,7 @@ summary:focus-visible {
   font-weight: 800;
   font-size: 1.3rem;
   text-transform: uppercase;
-  color: var(--blue-bright);
+  color: var(--primary-bright);
   line-height: 1.2;
 }
 
@@ -690,7 +772,7 @@ review-slider {
 }
 @media (hover: hover) and (pointer: fine) {
   .testimonial-card:hover {
-    border-color: var(--blue);
+    border-color: var(--primary);
     box-shadow: 0 16px 32px var(--shadow-40);
   }
 }
@@ -729,22 +811,27 @@ review-slider {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  transition: color 0.25s ease, padding-left 0.25s ease;
 }
+.faq-item summary:hover { color: var(--primary-bright); padding-left: 0.5rem; }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after {
   content: '+';
   font-family: var(--font-mono);
   font-size: 1.2rem;
-  color: var(--blue-bright);
+  color: var(--primary-bright);
   flex-shrink: 0;
   transition: transform 0.25s ease;
 }
+.faq-item summary:hover::after { transform: scale(1.2); }
 .faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item[open] summary:hover::after { transform: rotate(45deg) scale(1.2); }
 .faq-item p {
   margin: 0 0 1.2rem;
   color: var(--text-dim);
   font-size: 0.92rem;
   max-width: 34rem;
+  overflow: hidden;
 }
 
 /* ---------- CTA FINAL ---------- */
@@ -793,10 +880,41 @@ review-slider {
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--blue-bright);
+  color: var(--primary-bright);
   margin: 0 0 0.8rem;
 }
-.footer-col a:hover { color: var(--blue-bright); }
+.footer-col a:hover { color: var(--primary-bright); }
+.footer-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.footer-address .icon-pin {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--primary-bright);
+}
+.footer-social {
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 0.9rem;
+}
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline);
+  color: var(--text-dim);
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.footer-social a:hover {
+  color: var(--primary-bright);
+  border-color: var(--primary-bright);
+  transform: translateY(-2px);
+}
 .footer-map iframe {
   width: 100%;
   height: 160px;
@@ -824,7 +942,7 @@ review-slider {
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--blue-bright);
+  color: var(--primary-bright);
   margin: 0 0 0.7rem;
 }
 .seo-tags {
@@ -859,7 +977,7 @@ review-slider {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--blue-bright);
+  background: var(--primary-bright);
   color: var(--void);
   display: flex;
   align-items: center;
@@ -870,8 +988,8 @@ review-slider {
 }
 .whatsapp-float:hover { transform: scale(1.08); }
 @keyframes whatsapp-float-pulse {
-  0%, 100% { box-shadow: 0 6px 24px var(--shadow-50), 0 0 0 0 var(--blue-glow); }
-  50% { box-shadow: 0 6px 24px var(--shadow-50), 0 0 0 9px var(--blue-glow-0); }
+  0%, 100% { box-shadow: 0 6px 24px var(--shadow-50), 0 0 0 0 var(--primary-glow); }
+  50% { box-shadow: 0 6px 24px var(--shadow-50), 0 0 0 9px var(--primary-glow-0); }
 }
 
 /* ---------- MOBILE: collapse side alignment ---------- */

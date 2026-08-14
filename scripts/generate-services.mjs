@@ -329,9 +329,23 @@ ${jsonLd(svc)}
     </div>
     <div class="footer-col">
       <h4>Contato</h4>
-      <p>Av. Itamarati, 807 — Vila Aeroporto<br>Campinas/SP, 13054-150</p>
+      <p class="footer-address">
+        <svg class="icon-pin" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-7.58 7-12a7 7 0 1 0-14 0c0 4.42 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span>Av. Itamarati, 807 — Vila Aeroporto<br>Campinas/SP, 13054-150</span>
+      </p>
       <p><a href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank" rel="noopener">(19) 99309-7721</a></p>
       <p><a href="https://www.instagram.com/itamaraty_autoestetica" target="_blank" rel="noopener">@itamaraty_autoestetica</a></p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/itamaraty_autoestetica" target="_blank" rel="noopener" aria-label="Instagram Itamaraty Estética Automotiva">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank" rel="noopener" aria-label="WhatsApp Itamaraty Estética Automotiva">
+          <svg viewBox="0 0 32 32" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16.02 3C9.4 3 4 8.36 4 14.98c0 2.2.58 4.28 1.68 6.13L4 29l8.1-1.63a12.9 12.9 0 0 0 3.92.6h.01c6.62 0 12.02-5.36 12.02-11.98C28.05 8.36 22.64 3 16.02 3zm0 21.9h-.01a10 10 0 0 1-5.08-1.39l-.36-.21-3.8.76.8-3.7-.24-.38a9.9 9.9 0 0 1-1.53-5.3c0-5.47 4.46-9.92 9.94-9.92 2.65 0 5.14 1.04 7.02 2.92a9.86 9.86 0 0 1 2.91 7.02c0 5.47-4.46 9.92-9.65 9.92zm5.44-7.44c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/itamaratyesteticaautomotiva/?locale=pt_BR" target="_blank" rel="noopener" aria-label="Facebook Itamaraty Estética Automotiva">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.9h2.65l.4-3.08H13.5V8.04c0-.89.25-1.5 1.52-1.5h1.63V3.8C16.37 3.75 15.4 3.67 14.27 3.67c-2.34 0-3.95 1.43-3.95 4.05v2.3H7.66v3.08h2.66V21h3.18z"/></svg>
+        </a>
+      </div>
     </div>
     <div class="footer-col">
       <h4>Horário</h4>

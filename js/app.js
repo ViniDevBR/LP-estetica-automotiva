@@ -72,10 +72,17 @@
     loader.classList.add('is-hidden');
     initAll();
 
+    // As fontes carregam de forma assíncrona e podem mudar a altura de
+    // seções (quebra de linha diferente), o que deixa os cálculos de
+    // início/fim do ScrollTrigger desatualizados se não recalcularmos
+    // depois que elas (e o resto dos assets) realmente terminarem.
+    document.fonts.ready.then(() => ScrollTrigger.refresh());
+    window.addEventListener('load', () => ScrollTrigger.refresh());
+
     if (RELEASE_COUNT < FRAME_COUNT) {
       const background = [];
       for (let i = RELEASE_COUNT + 1; i <= FRAME_COUNT; i++) background.push(loadFrame(i));
-      Promise.all(background); // não bloqueia — carrega enquanto o usuário navega
+      Promise.all(background).then(() => ScrollTrigger.refresh()); // recalcula ao terminar o carregamento em segundo plano
     }
   }
 
@@ -121,14 +128,15 @@
 
   function initAll() {
     initLenis();
+    initHeaderHeightVar();
     initHeaderScroll();
     initHeroLoadIn();
     initHeroTransition();
     initFrameScrollBinding();
     initSectionAnimations();
-    initCounters();
     initMarquee();
-    initDarkOverlay();
+    initStickyOutro();
+    initFaqAccordion();
     ScrollTrigger.refresh();
   }
 
@@ -136,11 +144,24 @@
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true
+      smoothWheel: true,
+      // Elementos marcados com data-lenis-prevent (ou dentro de um) usam
+      // o scroll nativo do navegador em vez do smooth scroll global —
+      // necessário pro overflow interno das seções do sticky funcionar.
+      prevent: (node) => !!(node.closest && node.closest('[data-lenis-prevent]'))
     });
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((time) => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
+  }
+
+  function initHeaderHeightVar() {
+    if (!header) return;
+    const sync = () => {
+      document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`);
+    };
+    sync();
+    window.addEventListener('resize', sync);
   }
 
   function initHeaderScroll() {
@@ -273,27 +294,20 @@
     });
   }
 
-  function initCounters() {
+  function animateStatCounters() {
     document.querySelectorAll('.stat-number').forEach((el) => {
       const target = parseFloat(el.dataset.value);
       const decimals = parseInt(el.dataset.decimals || '0', 10);
-      ScrollTrigger.create({
-        trigger: '#stats',
-        start: 'top 85%',
-        onEnter: () => {
-          gsap.fromTo(el, { textContent: 0 }, {
-            textContent: target,
-            duration: 2,
-            ease: 'power1.out',
-            snap: { textContent: decimals === 0 ? 1 : 0.1 },
-            onUpdate: function () {
-              el.textContent = decimals === 0
-                ? Math.round(el.textContent)
-                : parseFloat(el.textContent).toFixed(decimals);
-            }
-          });
-        },
-        once: true
+      gsap.fromTo(el, { textContent: 0 }, {
+        textContent: target,
+        duration: 2,
+        ease: 'power1.out',
+        snap: { textContent: decimals === 0 ? 1 : 0.1 },
+        onUpdate: function () {
+          el.textContent = decimals === 0
+            ? Math.round(el.textContent)
+            : parseFloat(el.textContent).toFixed(decimals);
+        }
       });
     });
   }
@@ -327,19 +341,98 @@
     });
   }
 
-  function initDarkOverlay() {
-    const overlay = document.getElementById('dark-overlay');
-    const stats = document.getElementById('stats');
-    if (!stats) return;
-    const setOverlay = (value) => gsap.to(overlay, { opacity: value, duration: 0.5, ease: 'power2.out' });
+  // Sticky único: Stats > Depoimentos > FAQ > CTA se revezam (crossfade
+  // simples de opacidade, sem stagger interno) dentro do mesmo cartão
+  // fixo, enquanto a seção Processo (atrás) recolhe e escurece um pouco
+  // ENQUANTO o cartão se aproxima — não depois que ele já cobriu a tela.
+  function initStickyOutro() {
+    const wrapper = document.getElementById('sticky-outro');
+    if (!wrapper) return;
+
+    const SEGMENTS = [
+      { id: 'stats', start: 0, end: 0.14 },
+      { id: 'depoimentos', start: 0.14, end: 0.46 },
+      { id: 'faq', start: 0.46, end: 0.80 },
+      { id: 'contato', start: 0.80, end: 1.001 }
+    ].map((s) => ({ ...s, el: document.getElementById(s.id) })).filter((s) => s.el);
+    if (!SEGMENTS.length) return;
+
+    let activeIndex = -1;
+    let countersFired = false;
+
     ScrollTrigger.create({
-      trigger: stats,
-      start: 'top 70%',
-      end: 'bottom 30%',
-      onEnter: () => setOverlay(0.9),
-      onEnterBack: () => setOverlay(0.9),
-      onLeave: () => setOverlay(0),
-      onLeaveBack: () => setOverlay(0)
+      trigger: wrapper,
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: true,
+      onUpdate: (self) => {
+        const p = self.progress;
+
+        let idx = SEGMENTS.findIndex((s) => p >= s.start && p < s.end);
+        if (idx === -1) idx = p >= SEGMENTS[SEGMENTS.length - 1].start ? SEGMENTS.length - 1 : 0;
+
+        if (idx !== activeIndex) {
+          if (activeIndex !== -1) {
+            const prev = SEGMENTS[activeIndex].el;
+            prev.classList.remove('is-active');
+            gsap.to(prev, { opacity: 0, duration: 0.35, ease: 'power2.out' });
+          }
+          const cur = SEGMENTS[idx].el;
+          cur.classList.add('is-active');
+          gsap.to(cur, { opacity: 1, duration: 0.4, ease: 'power2.out' });
+          if (cur.id === 'stats' && !countersFired) {
+            countersFired = true;
+            animateStatCounters();
+          }
+          activeIndex = idx;
+        }
+      }
+    });
+  }
+
+  function initFaqAccordion() {
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const summary = item.querySelector('summary');
+      const content = item.querySelector('p');
+      if (!summary || !content) return;
+
+      summary.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (item.classList.contains('is-animating')) return;
+        item.classList.add('is-animating');
+
+        if (item.open) {
+          gsap.to(content, {
+            height: 0,
+            marginBottom: 0,
+            opacity: 0,
+            duration: 0.3,
+            ease: 'power2.inOut',
+            onComplete: () => {
+              item.open = false;
+              gsap.set(content, { clearProps: 'height,marginBottom,opacity' });
+              item.classList.remove('is-animating');
+            }
+          });
+        } else {
+          item.open = true;
+          const targetHeight = content.scrollHeight;
+          gsap.fromTo(content,
+            { height: 0, marginBottom: 0, opacity: 0 },
+            {
+              height: targetHeight,
+              marginBottom: '1.2rem',
+              opacity: 1,
+              duration: 0.35,
+              ease: 'power2.out',
+              onComplete: () => {
+                gsap.set(content, { clearProps: 'height,marginBottom,opacity' });
+                item.classList.remove('is-animating');
+              }
+            }
+          );
+        }
+      });
     });
   }
 

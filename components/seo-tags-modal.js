@@ -34,8 +34,8 @@ class SeoTagsModal extends HTMLElement {
           transition: color 0.2s ease, border-color 0.2s ease;
           vertical-align: middle;
         }
-        .trigger:hover { color: var(--blue-bright, #7db2ff); border-color: var(--blue-bright, #7db2ff); }
-        .trigger:focus-visible { outline: 2px solid var(--blue-bright, #7db2ff); outline-offset: 2px; }
+        .trigger:hover { color: var(--primary-bright, #f5cc1f); border-color: var(--primary-bright, #f5cc1f); }
+        .trigger:focus-visible { outline: 2px solid var(--primary-bright, #f5cc1f); outline-offset: 2px; }
         .trigger svg { width: 15px; height: 15px; }
 
         .overlay {
@@ -48,7 +48,7 @@ class SeoTagsModal extends HTMLElement {
           padding: 5vh 5vw;
         }
         :host([open]) .overlay { display: flex; }
-        .backdrop { position: absolute; inset: 0; background: rgba(8, 9, 11, 0.92); }
+        .backdrop { position: absolute; inset: 0; background: var(--void-a92, rgba(8, 9, 11, 0.92)); }
         .panel {
           position: relative;
           width: min(720px, 100%);
@@ -83,8 +83,8 @@ class SeoTagsModal extends HTMLElement {
           font-size: 1.2rem;
           line-height: 1;
         }
-        .close:hover { border-color: var(--blue-bright, #7db2ff); color: var(--blue-bright, #7db2ff); }
-        .close:focus-visible { outline: 2px solid var(--blue-bright, #7db2ff); outline-offset: 2px; }
+        .close:hover { border-color: var(--primary-bright, #f5cc1f); color: var(--primary-bright, #f5cc1f); }
+        .close:focus-visible { outline: 2px solid var(--primary-bright, #f5cc1f); outline-offset: 2px; }
         ::slotted(.seo-tag-group) { margin-bottom: 1.4rem; }
         ::slotted(.seo-tag-group:last-child) { margin-bottom: 0; }
       </style>

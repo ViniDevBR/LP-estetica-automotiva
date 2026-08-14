@@ -1,7 +1,7 @@
 /**
  * <before-after-slider before="..." after="..." before-label="Antes" after-label="Depois" alt="...">
  * Reusable swipe-reveal / before-and-after comparison. Shadow DOM; reads the
- * host page's design tokens (--blue-bright, --font-mono, --void) via CSS
+ * host page's design tokens (--primary-bright, --font-mono, --void) via CSS
  * custom properties, which pierce the shadow boundary.
  */
 class BeforeAfterSlider extends HTMLElement {
@@ -47,20 +47,20 @@ class BeforeAfterSlider extends HTMLElement {
           letter-spacing: 0.08em;
           text-transform: uppercase;
           color: var(--text, #eef1f4);
-          background: rgba(8, 9, 11, 0.55);
+          background: var(--void-a55, rgba(8, 9, 11, 0.55));
           padding: 0.3rem 0.6rem;
           pointer-events: none;
         }
         .tag-before { left: 0.8rem; }
-        .tag-after { right: 0.8rem; color: var(--blue-bright, #7db2ff); }
+        .tag-after { right: 0.8rem; color: var(--primary-bright, #f5cc1f); }
         .divider {
           position: absolute;
           top: 0; bottom: 0;
           left: var(--pos, 50%);
           width: 2px;
-          background: var(--blue-bright, #7db2ff);
+          background: var(--primary-bright, #f5cc1f);
           transform: translateX(-50%);
-          box-shadow: 0 0 8px 1px var(--blue-glow, rgba(125,178,255,0.35));
+          box-shadow: 0 0 8px 1px var(--primary-glow, rgba(245,204,31,0.35));
         }
         .handle {
           position: absolute;
@@ -68,11 +68,11 @@ class BeforeAfterSlider extends HTMLElement {
           width: 34px; height: 34px;
           transform: translate(-50%, -50%);
           border-radius: 50%;
-          background: var(--blue-bright, #7db2ff);
+          background: var(--primary-bright, #f5cc1f);
           color: var(--void, #08090b);
           display: flex; align-items: center; justify-content: center;
           font-size: 0.85rem;
-          box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+          box-shadow: 0 4px 14px var(--shadow-50, rgba(0,0,0,0.5));
         }
         .handle:focus-visible {
           outline: 2px solid var(--text, #eef1f4);
