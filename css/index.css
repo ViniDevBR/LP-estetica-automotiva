@@ -513,6 +513,11 @@ summary:focus-visible {
 .section-media-split { max-width: 30rem; }
 
 /* ---------- SERVICES ---------- */
+/* data-animation="slide-right" desloca os cards 80px pra direita antes
+   de entrar (ver buildTimeline em js/app.js) — em telas estreitas, sem
+   margem lateral suficiente pra absorver isso, o offset criava scroll
+   horizontal na página inteira. Contendo aqui. */
+#servicos { overflow-x: hidden; }
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -645,7 +650,7 @@ summary:focus-visible {
 /* ---------- STICKY OUTRO (Stats + Depoimentos + FAQ + CTA) ---------- */
 .sticky-outro {
   position: relative;
-  height: 560vh;
+  height: 450vh;
 }
 .sticky-outro-inner {
   position: sticky;

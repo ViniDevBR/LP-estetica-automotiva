@@ -235,15 +235,20 @@
     const tl = gsap.timeline({ paused: true });
     if (!children.length) return tl;
 
+    // slide-left/slide-right deslocam os itens horizontalmente antes de
+    // entrar; em telas estreitas não há margem lateral pra absorver 80px
+    // sem estourar a largura da página, então reduz o deslocamento.
+    const slideDistance = window.innerWidth < 768 ? 24 : 80;
+
     switch (type) {
       case 'fade-up':
         tl.from(children, { y: 50, opacity: 0, stagger: 0.1, duration: 0.9, ease: 'power3.out' });
         break;
       case 'slide-left':
-        tl.from(children, { x: -80, opacity: 0, stagger: 0.1, duration: 0.9, ease: 'power3.out' });
+        tl.from(children, { x: -slideDistance, opacity: 0, stagger: 0.1, duration: 0.9, ease: 'power3.out' });
         break;
       case 'slide-right':
-        tl.from(children, { x: 80, opacity: 0, stagger: 0.08, duration: 0.9, ease: 'power3.out' });
+        tl.from(children, { x: slideDistance, opacity: 0, stagger: 0.08, duration: 0.9, ease: 'power3.out' });
         break;
       case 'scale-up':
         tl.from(children, { scale: 0.88, opacity: 0, stagger: 0.1, duration: 1.0, ease: 'power2.out' });
@@ -350,10 +355,10 @@
     if (!wrapper) return;
 
     const SEGMENTS = [
-      { id: 'stats', start: 0, end: 0.14 },
-      { id: 'depoimentos', start: 0.14, end: 0.46 },
-      { id: 'faq', start: 0.46, end: 0.80 },
-      { id: 'contato', start: 0.80, end: 1.001 }
+      { id: 'stats', start: 0, end: 0.4096 },
+      { id: 'depoimentos', start: 0.4096, end: 0.6290 },
+      { id: 'faq', start: 0.6290, end: 0.8622 },
+      { id: 'contato', start: 0.8622, end: 1.001 }
     ].map((s) => ({ ...s, el: document.getElementById(s.id) })).filter((s) => s.el);
     if (!SEGMENTS.length) return;
 
