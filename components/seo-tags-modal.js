@@ -57,7 +57,17 @@ class SeoTagsModal extends HTMLElement {
           background: var(--graphite, #131519);
           border: 1px solid var(--hairline-strong, rgba(255,255,255,0.16));
           padding: 2.2rem;
+          scrollbar-width: thin;
+          scrollbar-color: var(--primary, #c9a01a) var(--graphite-2, #1b1e23);
         }
+        .panel::-webkit-scrollbar { width: 10px; }
+        .panel::-webkit-scrollbar-track { background: var(--graphite-2, #1b1e23); }
+        .panel::-webkit-scrollbar-thumb {
+          background: var(--primary, #c9a01a);
+          border-radius: 6px;
+          border: 2px solid var(--graphite-2, #1b1e23);
+        }
+        .panel::-webkit-scrollbar-thumb:hover { background: var(--primary-bright, #f5cc1f); }
         .panel-head {
           display: flex;
           align-items: flex-start;

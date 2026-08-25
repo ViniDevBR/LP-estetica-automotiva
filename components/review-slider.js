@@ -62,7 +62,7 @@ class ReviewSlider extends HTMLElement {
         button.nav:hover { border-color: var(--primary-bright, #f5cc1f); color: var(--primary-bright, #f5cc1f); }
         button.nav:focus-visible { outline: 2px solid var(--primary-bright, #f5cc1f); outline-offset: 2px; }
         .counter {
-          font-family: var(--font-mono, monospace);
+          font-family: var(--font-accent, sans-serif);
           font-size: 0.75rem;
           letter-spacing: 0.06em;
           color: var(--text-faint, #5b626c);

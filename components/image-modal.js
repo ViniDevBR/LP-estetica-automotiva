@@ -47,7 +47,7 @@ class ImageModal extends HTMLElement {
         }
         figcaption {
           margin-top: 0.8rem;
-          font-family: var(--font-mono, monospace);
+          font-family: var(--font-accent, sans-serif);
           font-size: 0.75rem;
           letter-spacing: 0.04em;
           color: var(--text-dim, #9aa1ab);

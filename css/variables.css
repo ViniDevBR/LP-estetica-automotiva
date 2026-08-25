@@ -37,9 +37,9 @@
   --shadow-40: rgba(0, 0, 0, 0.4);
   --shadow-50: rgba(0, 0, 0, 0.5);
 
-  --font-display: 'Big Shoulders Display', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-accent: 'Montserrat', sans-serif;
 }
 
 /* ---------- SERVIÇOS ---------- */

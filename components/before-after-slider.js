@@ -1,7 +1,7 @@
 /**
  * <before-after-slider before="..." after="..." before-label="Antes" after-label="Depois" alt="...">
  * Reusable swipe-reveal / before-and-after comparison. Shadow DOM; reads the
- * host page's design tokens (--primary-bright, --font-mono, --void) via CSS
+ * host page's design tokens (--primary-bright, --font-accent, --void) via CSS
  * custom properties, which pierce the shadow boundary.
  */
 class BeforeAfterSlider extends HTMLElement {
@@ -41,7 +41,7 @@ class BeforeAfterSlider extends HTMLElement {
         .tag {
           position: absolute;
           top: 0.8rem;
-          font-family: var(--font-mono, monospace);
+          font-family: var(--font-accent, sans-serif);
           font-size: 0.68rem;
           font-weight: 600;
           letter-spacing: 0.08em;

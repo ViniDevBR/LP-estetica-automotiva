@@ -24,7 +24,7 @@ const SERVICES = [
     slug: 'lavagem-tecnica',
     code: '01',
     name: 'Lavagem Técnica',
-    eyebrow: 'LAVAGEM TÉCNICA',
+    eyebrow: 'Lavagem Técnica',
     heroWords: [['LAVAGEM'], ['TÉCNICA.']],
     tagline: 'Descontaminação completa da carroceria com pH neutro e técnica de dois baldes — a base de qualquer detalhamento, sem risco à pintura.',
     metaDescription: 'Lavagem técnica automotiva em Campinas/SP: descontaminação com pH neutro e técnica de dois baldes, sem risco à pintura. Itamaraty Estética Automotiva.',
@@ -39,7 +39,7 @@ const SERVICES = [
     slug: 'motor-chassi',
     code: '02',
     name: 'Motor e Chassi',
-    eyebrow: 'MOTOR E CHASSI',
+    eyebrow: 'Motor e Chassi',
     heroWords: [['MOTOR'], ['E', 'CHASSI.']],
     tagline: 'Limpeza segura do compartimento do motor e da parte inferior do veículo, protegendo componentes elétricos.',
     metaDescription: 'Lavagem técnica de motor e chassi em Campinas/SP, com proteção de componentes elétricos. Itamaraty Estética Automotiva.',
@@ -54,7 +54,7 @@ const SERVICES = [
     slug: 'higienizacao-interna',
     code: '03',
     name: 'Higienização Interna',
-    eyebrow: 'HIGIENIZAÇÃO INTERNA',
+    eyebrow: 'Higienização Interna',
     heroWords: [['HIGIENIZAÇÃO'], ['INTERNA.']],
     tagline: 'Extração profunda de ácaros, odores e manchas em bancos, forração, teto e carpete.',
     metaDescription: 'Higienização interna automotiva em Campinas/SP: extração profunda de ácaros, odores e manchas. Itamaraty Estética Automotiva.',
@@ -69,7 +69,7 @@ const SERVICES = [
     slug: 'protecao-pintura',
     code: '04',
     name: 'Proteção de Pintura',
-    eyebrow: 'PROTEÇÃO DE PINTURA',
+    eyebrow: 'Proteção de Pintura',
     heroWords: [['PROTEÇÃO'], ['DE', 'PINTURA.']],
     tagline: 'Polimento, cristalização, vitrificação cerâmica e enceramento — protocolo definido pela espessura real de verniz medida antes de iniciar.',
     metaDescription: 'Polimento técnico e vitrificação cerâmica em Campinas/SP, com protocolo definido por medição real de espessura de verniz. Itamaraty Estética Automotiva.',
@@ -84,7 +84,7 @@ const SERVICES = [
     slug: 'restauracao-farol',
     code: '05',
     name: 'Restauração de Faróis',
-    eyebrow: 'RESTAURAÇÃO DE FARÓIS',
+    eyebrow: 'Restauração de Faróis',
     heroWords: [['RESTAURAÇÃO'], ['DE', 'FARÓIS.']],
     tagline: 'Remoção da oxidação amarelada do policarbonato com lixamento técnico e selagem.',
     metaDescription: 'Restauração de faróis automotivos em Campinas/SP: remoção de oxidação e selagem UV. Itamaraty Estética Automotiva.',
@@ -99,7 +99,7 @@ const SERVICES = [
     slug: 'restauracao-couro',
     code: '06',
     name: 'Restauração de Couro',
-    eyebrow: 'RESTAURAÇÃO DE COURO',
+    eyebrow: 'Restauração de Couro',
     heroWords: [['RESTAURAÇÃO'], ['DE', 'COURO.']],
     tagline: 'Tratamento com linha Colortek Leather para rachaduras, desbotamento e ressecamento.',
     metaDescription: 'Restauração de bancos de couro em Campinas/SP com linha Colortek Leather. Itamaraty Estética Automotiva.',
@@ -114,7 +114,7 @@ const SERVICES = [
     slug: 'servico-moto',
     code: '07',
     name: 'Serviços para Motos',
-    eyebrow: 'SERVIÇOS PARA MOTOS',
+    eyebrow: 'Serviços para Motos',
     heroWords: [['SERVIÇOS'], ['PARA', 'MOTOS.']],
     tagline: 'Lavagem técnica, polimento e proteção adaptados à geometria e aos materiais específicos de motocicletas.',
     metaDescription: 'Lavagem técnica, polimento e proteção para motos em Campinas/SP. Itamaraty Estética Automotiva.',
@@ -129,7 +129,7 @@ const SERVICES = [
     slug: 'customizacao-bancos',
     code: '08',
     name: 'Customização de Bancos',
-    eyebrow: 'CUSTOMIZAÇÃO DE BANCOS',
+    eyebrow: 'Customização de Bancos',
     heroWords: [['CUSTOMIZAÇÃO'], ['DE', 'BANCOS.']],
     tagline: 'Substituição do revestimento original de tecido por couro sob medida, com costura personalizada.',
     metaDescription: 'Customização de bancos automotivos em Campinas/SP: troca de tecido por couro sob medida. Itamaraty Estética Automotiva.',
@@ -241,7 +241,7 @@ function renderPage(svc) {
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../css/variables.css">
 <link rel="stylesheet" href="../css/index.css">
@@ -261,7 +261,7 @@ ${jsonLd(svc)}
 <section class="service-hero"
   style="background-image: linear-gradient(180deg, rgba(8,9,11,0.35) 0%, rgba(8,9,11,0.82) 70%, var(--void) 100%), url('../assets/images/svc-${svc.slug}.webp');">
   <div class="service-hero-inner">
-    <span class="section-label">ITAMARATY — ${svc.eyebrow}</span>
+    <span class="section-label">Itamaraty — ${svc.eyebrow}</span>
     <h1 class="service-hero-heading">
         ${heroHeadingHtml(svc.heroWords)}
     </h1>
@@ -279,7 +279,7 @@ ${jsonLd(svc)}
 
 <section class="svc-section svc-steps" id="etapas">
   <div class="svc-section-head">
-    <span class="section-label">COMO FUNCIONA</span>
+    <span class="section-label">Como funciona</span>
     <h2 class="svc-section-heading">Etapas do serviço</h2>
   </div>
   <ol class="process-list">${stepsHtml(svc.steps)}
@@ -288,7 +288,7 @@ ${jsonLd(svc)}
 
 <section class="svc-section svc-gallery" id="resultados">
   <div class="svc-section-head">
-    <span class="section-label">RESULTADOS</span>
+    <span class="section-label">Resultados</span>
     <h2 class="svc-section-heading">Arraste para comparar</h2>
     <p class="svc-section-body">Exemplos ilustrativos do padrão de acabamento buscado neste serviço — arraste a linha para revelar o antes e o depois. <em>(Fotos reais deste serviço em breve.)</em></p>
   </div>
@@ -298,7 +298,7 @@ ${jsonLd(svc)}
 
 <section class="svc-section svc-showcase" id="galeria">
   <div class="svc-section-head">
-    <span class="section-label">GALERIA</span>
+    <span class="section-label">Galeria</span>
     <h2 class="svc-section-heading">Mais detalhes do trabalho</h2>
   </div>
   <div class="svc-filter-bar">
@@ -314,7 +314,7 @@ ${jsonLd(svc)}
 
 <section class="section-cta-final svc-cta" id="contato">
   <div class="section-inner section-inner-center">
-    <span class="section-label">PRÓXIMO PASSO</span>
+    <span class="section-label">Próximo passo</span>
     <h2 class="cta-heading">Seu carro merece o padrão Itamaraty em ${svc.name.toLowerCase()}.</h2>
     <p class="section-note">Resposta rápida. Avaliação sem compromisso.</p>
     <a href="${waCta}" class="btn btn-primary btn-large cta-button" target="_blank" rel="noopener">Falar com Especialista</a>
@@ -356,7 +356,15 @@ ${jsonLd(svc)}
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Itamaraty Estética Automotiva. Todos os direitos reservados.</span>
+    <div class="footer-bottom-text">
+      <span>© 2026 Itamaraty Estética Automotiva. Todos os direitos reservados.</span>
+      <span class="footer-credit">Feito por
+        <a href="https://github.com/ViniDevBR" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.755-1.333-1.755-1.09-.744.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.42-1.305.763-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          Vinicius
+        </a>
+      </span>
+    </div>
     <seo-tags-modal>
       <div class="seo-tag-group">
         <h4>Serviços</h4>

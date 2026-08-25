@@ -24,4 +24,3 @@ Trocar o placeholder `SEU-DOMINIO.com.br` pelo domínio real nos seguintes arqui
 ## Outras melhorias sugeridas (menor prioridade)
 
 - [ ] Substituir imagens geradas por IA por fotos reais da loja/equipe/carros ao longo do tempo (autenticidade > mood genérico).
-- [ ] Coletar mais depoimentos reais do Google para variar o carrossel de avaliações.
