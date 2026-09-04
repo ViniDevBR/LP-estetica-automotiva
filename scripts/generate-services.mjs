@@ -4,13 +4,14 @@
 //
 //   node scripts/generate-services.mjs
 
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const OUT_DIR = join(ROOT, 'servicos');
+const SVC_IMAGES_DIR = join(ROOT, 'assets', 'images', 'services');
 
 const WHATSAPP_NUMBER = '5519993097721';
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2308090b'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='30' fill='%236fa8ff' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E";
@@ -26,13 +27,14 @@ const SERVICES = [
     name: 'Lavagem Técnica',
     eyebrow: 'Lavagem Técnica',
     heroWords: [['LAVAGEM'], ['TÉCNICA.']],
-    tagline: 'Descontaminação completa da carroceria com pH neutro e técnica de dois baldes — a base de qualquer detalhamento, sem risco à pintura.',
+    tagline: 'Da pré-lavagem ao acabamento em vidros, rodas e pneus — um processo completo e cuidadoso, com atenção a cada canto do veículo, para o padrão de qualidade Itamaraty em cada detalhe.',
     metaDescription: 'Lavagem técnica automotiva em Campinas/SP: descontaminação com pH neutro e técnica de dois baldes, sem risco à pintura. Itamaraty Estética Automotiva.',
     steps: [
-      { title: 'Pré-lavagem (snow foam)', desc: 'Remove sujeira solta sem contato direto, reduzindo o risco de marcas de água (marring) na pintura.' },
-      { title: 'Lavagem dois baldes', desc: 'Balde de lavagem e balde de enxágue separados, evitando reintroduzir partículas abrasivas na luva.' },
-      { title: 'Descontaminação química e física', desc: 'Remove piche, ferrugem industrial e resíduos que o xampu sozinho não retira.' },
-      { title: 'Secagem controlada', desc: 'Toalhas de microfibra e soprador, sem arrastar sujeira residual sobre a pintura.' }
+      { title: 'Pré-lavagem', desc: 'Remoção da sujeira pesada e preparação da superfície.' },
+      { title: 'Lavagem técnica', desc: 'Limpeza cuidadosa da carroceria, rodas, caixas de roda e detalhes externos com produtos e técnicas adequadas.' },
+      { title: 'Cantos e detalhes', desc: 'Atenção especial a emblemas, frisos, frestas, maçanetas e demais pontos de difícil acesso.' },
+      { title: 'Enxágue e secagem', desc: 'Remoção completa dos resíduos e secagem cuidadosa para evitar marcas e riscos.' },
+      { title: 'Acabamento', desc: 'Limpeza dos vidros, verniz de caixa de rodas e selante de pneus.' }
     ]
   },
   {
@@ -162,33 +164,116 @@ function stepsHtml(steps) {
           </li>`).join('');
 }
 
+// Pasta com fotos reais de um serviço: assets/images/services/<slug>/
+// Convenção de nomes (já em .webp — ver scripts/prepare-service-images.mjs):
+//   <CÓDIGO>-01.webp / <CÓDIGO>-02.webp   par antes/depois — 01 é a foto
+//                                          da esquerda (DEPOIS), 02 a da
+//                                          direita (ANTES). <CÓDIGO> é
+//                                          qualquer prefixo (AA, AB, AC...)
+//                                          que identifique o par.
+//   OTHERS-01.webp, OTHERS-02.webp, ...   fotos avulsas, só para a grid.
+// A grid final soma OTHERS-* com a foto "01" (depois) de cada par.
+// Sem fotos na pasta ainda, cai no placeholder atual — nada quebra.
+function scanServiceImages(slug) {
+  const dir = join(SVC_IMAGES_DIR, slug);
+  if (!existsSync(dir)) return { pairs: [], others: [] };
+
+  const re = /^(.+)-(\d+)\.webp$/i;
+  const groups = new Map();
+  const others = [];
+
+  for (const file of readdirSync(dir)) {
+    const m = file.match(re);
+    if (!m) continue;
+    const [, prefix, num] = m;
+    if (/^others$/i.test(prefix)) {
+      others.push(file);
+      continue;
+    }
+    if (!groups.has(prefix)) groups.set(prefix, {});
+    groups.get(prefix)[num] = file;
+  }
+
+  const pairs = [];
+  for (const [prefix, byNum] of groups) {
+    if (byNum['01'] && byNum['02']) {
+      pairs.push({ prefix, depois: byNum['01'], antes: byNum['02'] });
+    }
+  }
+  pairs.sort((a, b) => a.prefix.localeCompare(b.prefix));
+  others.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+  return { pairs, others };
+}
+
+function resultsCaption(svc) {
+  const { pairs } = scanServiceImages(svc.slug);
+  return pairs.length
+    ? 'Arraste a linha para revelar o antes e o depois de trabalhos reais deste serviço.'
+    : 'Exemplos ilustrativos do padrão de acabamento buscado neste serviço — arraste a linha para revelar o antes e o depois. <em>(Fotos reais deste serviço em breve.)</em>';
+}
+
 function galleryHtml(svc) {
-  let out = '';
-  for (let i = 1; i <= 10; i++) {
-    out += `
+  const { pairs } = scanServiceImages(svc.slug);
+
+  if (!pairs.length) {
+    let out = '';
+    for (let i = 1; i <= 10; i++) {
+      out += `
           <figure class="svc-gallery-item">
             <before-after-slider before="${PLACEHOLDER_BEFORE}" after="${PLACEHOLDER_AFTER}"
               alt="${svc.name} — exemplo ${i}"></before-after-slider>
             <figcaption class="svc-gallery-caption">Exemplo 0${i}</figcaption>
           </figure>`;
+    }
+    return out;
   }
+
+  let out = '';
+  pairs.forEach((p, i) => {
+    const num = i + 1;
+    const beforeSrc = `../assets/images/services/${svc.slug}/${p.antes}`;
+    const afterSrc = `../assets/images/services/${svc.slug}/${p.depois}`;
+    out += `
+          <figure class="svc-gallery-item">
+            <before-after-slider before="${beforeSrc}" after="${afterSrc}"
+              alt="${svc.name} — exemplo ${num}"></before-after-slider>
+            <figcaption class="svc-gallery-caption">Exemplo ${String(num).padStart(2, '0')}</figcaption>
+          </figure>`;
+  });
   return out;
 }
 
 function gridHtml(svc) {
-  const pool = [
-    { src: `../assets/images/svc-${svc.slug}.webp`, alt: `${svc.name} — detalhe` },
-    { src: PLACEHOLDER_AFTER, alt: `${svc.name} — resultado` },
-    { src: PLACEHOLDER_BEFORE, alt: `${svc.name} — processo` }
-  ];
-  let out = '';
-  for (let i = 0; i < 12; i++) {
-    const p = pool[i % pool.length];
-    out += `
+  const { pairs, others } = scanServiceImages(svc.slug);
+  const gridFiles = [...others, ...pairs.map((p) => p.depois)];
+
+  if (!gridFiles.length) {
+    const pool = [
+      { src: `../assets/images/svc-${svc.slug}.webp`, alt: `${svc.name} — detalhe` },
+      { src: PLACEHOLDER_AFTER, alt: `${svc.name} — resultado` },
+      { src: PLACEHOLDER_BEFORE, alt: `${svc.name} — processo` }
+    ];
+    let out = '';
+    for (let i = 0; i < 12; i++) {
+      const p = pool[i % pool.length];
+      out += `
         <button class="gallery-tile" data-src="${p.src}" data-caption="${p.alt}">
           <img src="${p.src}" alt="${p.alt}" loading="lazy">
         </button>`;
+    }
+    return out;
   }
+
+  let out = '';
+  gridFiles.forEach((file, i) => {
+    const src = `../assets/images/services/${svc.slug}/${file}`;
+    const alt = `${svc.name} — detalhe ${i + 1}`;
+    out += `
+        <button class="gallery-tile" data-src="${src}" data-caption="${alt}">
+          <img src="${src}" alt="${alt}" loading="lazy">
+        </button>`;
+  });
   return out;
 }
 
@@ -290,7 +375,7 @@ ${jsonLd(svc)}
   <div class="svc-section-head">
     <span class="section-label">Resultados</span>
     <h2 class="svc-section-heading">Arraste para comparar</h2>
-    <p class="svc-section-body">Exemplos ilustrativos do padrão de acabamento buscado neste serviço — arraste a linha para revelar o antes e o depois. <em>(Fotos reais deste serviço em breve.)</em></p>
+    <p class="svc-section-body">${resultsCaption(svc)}</p>
   </div>
   <div class="svc-gallery-grid">${galleryHtml(svc)}
   </div>

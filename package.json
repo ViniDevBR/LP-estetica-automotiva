@@ -1,0 +1,13 @@
+{
+  "name": "itamaraty-estetica",
+  "private": true,
+  "description": "Landing page da Itamaraty Estética Automotiva. Site estático — este package.json existe só para o script de preparo de imagens (scripts/prepare-service-images.mjs), que depende do sharp.",
+  "scripts": {
+    "prepare-images": "node scripts/prepare-service-images.mjs",
+    "generate-services": "node scripts/generate-services.mjs",
+    "generate-testimonials": "node scripts/generate-testimonials.mjs"
+  },
+  "devDependencies": {
+    "sharp": "0.35.4"
+  }
+}
