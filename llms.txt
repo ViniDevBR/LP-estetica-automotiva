@@ -15,7 +15,8 @@ A Itamaraty avalia tecnicamente cada veículo (incluindo medição da espessura 
 ## Serviços
 
 - Lavagem Técnica — descontaminação completa da carroceria com pH neutro e técnica de dois baldes.
-- Lavagem de Motor e Chassi — limpeza segura do compartimento do motor e da parte inferior do veículo.
+- Lavagem de Motor — limpeza segura do compartimento do motor, com proteção de componentes elétricos sensíveis.
+- Lavagem de Chassi — lavagem técnica da parte inferior do veículo (suspensão, escapamento e assoalho).
 - Higienização Interna — extração profunda de ácaros, odores e manchas em bancos, forração, teto e carpete.
 - Proteção de Pintura — polimento, cristalização, vitrificação cerâmica e enceramento, definidos pela espessura real de verniz.
 - Restauração de Faróis — remoção da oxidação amarelada do policarbonato com lixamento técnico e selagem.

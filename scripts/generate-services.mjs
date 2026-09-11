@@ -38,23 +38,38 @@ const SERVICES = [
     ]
   },
   {
-    slug: 'motor-chassi',
+    slug: 'motor',
     code: '02',
-    name: 'Motor e Chassi',
-    eyebrow: 'Motor e Chassi',
-    heroWords: [['MOTOR'], ['E', 'CHASSI.']],
-    tagline: 'Limpeza segura do compartimento do motor e da parte inferior do veículo, protegendo componentes elétricos.',
-    metaDescription: 'Lavagem técnica de motor e chassi em Campinas/SP, com proteção de componentes elétricos. Itamaraty Estética Automotiva.',
+    name: 'Motor',
+    eyebrow: 'Motor',
+    heroWords: [['LIMPEZA'], ['DE', 'MOTOR.']],
+    tagline: 'Limpeza segura do compartimento do motor, com proteção total de sensores e componentes elétricos sensíveis.',
+    metaDescription: 'Lavagem técnica de motor em Campinas/SP, com proteção de componentes elétricos. Itamaraty Estética Automotiva.',
     steps: [
       { title: 'Proteção de componentes elétricos', desc: 'Sensores, chicotes e conectores sensíveis são isolados antes de qualquer produto entrar em contato.' },
-      { title: 'Desengraxe dirigido', desc: 'Produto específico aplicado nos pontos de acúmulo de graxa e óleo do motor e da suspensão.' },
+      { title: 'Desengraxe dirigido', desc: 'Produto específico aplicado nos pontos de acúmulo de graxa e óleo do motor.' },
       { title: 'Enxágue de baixa pressão', desc: 'Remove resíduos sem forçar água para dentro de conectores e mancais.' },
       { title: 'Secagem e proteção', desc: 'Compartimento seco por completo antes da entrega, evitando oxidação.' }
     ]
   },
   {
-    slug: 'higienizacao-interna',
+    slug: 'chassi',
     code: '03',
+    name: 'Chassi',
+    eyebrow: 'Chassi',
+    heroWords: [['LIMPEZA'], ['DE', 'CHASSI.']],
+    tagline: 'Lavagem técnica da parte inferior do veículo — suspensão, escapamento e assoalho — removendo lama, graxa e resíduos de estrada.',
+    metaDescription: 'Lavagem técnica de chassi em Campinas/SP: suspensão, escapamento e parte inferior do veículo. Itamaraty Estética Automotiva.',
+    steps: [
+      { title: 'Pré-lavagem da parte inferior', desc: 'Remove lama e sujeira pesada acumulada em suspensão, escapamento e assoalho.' },
+      { title: 'Desengraxe de suspensão e escapamento', desc: 'Produto específico dissolve graxa e resíduos de estrada sem agredir componentes metálicos.' },
+      { title: 'Enxágue técnico', desc: 'Lavagem detalhada de rodas, caixas de roda e parte inferior com pressão controlada.' },
+      { title: 'Secagem e proteção anticorrosiva', desc: 'Compartimento seco por completo, com proteção que retarda a oxidação de peças metálicas expostas.' }
+    ]
+  },
+  {
+    slug: 'higienizacao-interna',
+    code: '04',
     name: 'Higienização Interna',
     eyebrow: 'Higienização Interna',
     heroWords: [['HIGIENIZAÇÃO'], ['INTERNA.']],
@@ -69,7 +84,7 @@ const SERVICES = [
   },
   {
     slug: 'protecao-pintura',
-    code: '04',
+    code: '05',
     name: 'Proteção de Pintura',
     eyebrow: 'Proteção de Pintura',
     heroWords: [['PROTEÇÃO'], ['DE', 'PINTURA.']],
@@ -84,7 +99,7 @@ const SERVICES = [
   },
   {
     slug: 'restauracao-farol',
-    code: '05',
+    code: '06',
     name: 'Restauração de Faróis',
     eyebrow: 'Restauração de Faróis',
     heroWords: [['RESTAURAÇÃO'], ['DE', 'FARÓIS.']],
@@ -99,7 +114,7 @@ const SERVICES = [
   },
   {
     slug: 'restauracao-couro',
-    code: '06',
+    code: '07',
     name: 'Restauração de Couro',
     eyebrow: 'Restauração de Couro',
     heroWords: [['RESTAURAÇÃO'], ['DE', 'COURO.']],
@@ -114,7 +129,7 @@ const SERVICES = [
   },
   {
     slug: 'servico-moto',
-    code: '07',
+    code: '08',
     name: 'Serviços para Motos',
     eyebrow: 'Serviços para Motos',
     heroWords: [['SERVIÇOS'], ['PARA', 'MOTOS.']],
@@ -129,7 +144,7 @@ const SERVICES = [
   },
   {
     slug: 'customizacao-bancos',
-    code: '08',
+    code: '09',
     name: 'Customização de Bancos',
     eyebrow: 'Customização de Bancos',
     heroWords: [['CUSTOMIZAÇÃO'], ['DE', 'BANCOS.']],

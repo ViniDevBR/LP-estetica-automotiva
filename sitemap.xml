@@ -13,8 +13,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://SEU-DOMINIO.com.br/servicos/motor-chassi.html</loc>
-    <lastmod>2026-08-14</lastmod>
+    <loc>https://SEU-DOMINIO.com.br/servicos/motor.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://SEU-DOMINIO.com.br/servicos/chassi.html</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
