@@ -28,7 +28,7 @@ const SERVICES = [
     eyebrow: 'Lavagem Técnica',
     heroWords: [['LAVAGEM'], ['TÉCNICA.']],
     tagline: 'Da pré-lavagem ao acabamento em vidros, rodas e pneus — um processo completo e cuidadoso, com atenção a cada canto do veículo, para o padrão de qualidade Itamaraty em cada detalhe.',
-    metaDescription: 'Lavagem técnica automotiva em Campinas/SP: descontaminação com pH neutro e técnica de dois baldes, sem risco à pintura. Itamaraty Estética Automotiva.',
+    metaDescription: 'Lavagem técnica automotiva em Campinas/SP: descontaminação com pH neutro, sem risco à pintura. Itamaraty Estética Automotiva.',
     steps: [
       { title: 'Pré-lavagem', desc: 'Remoção da sujeira pesada e preparação da superfície.' },
       { title: 'Lavagem técnica', desc: 'Limpeza cuidadosa da carroceria, rodas, caixas de roda e detalhes externos com produtos e técnicas adequadas.' },
