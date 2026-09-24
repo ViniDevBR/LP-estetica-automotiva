@@ -558,6 +558,17 @@ summary:focus-visible {
   color: var(--text-dim);
 }
 .diff-item strong { color: var(--text); font-weight: 600; }
+.diff-item a {
+  text-decoration: underline;
+  text-decoration-color: var(--hairline-strong);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.diff-item a:hover,
+.diff-item a:hover strong {
+  color: var(--primary-bright);
+  text-decoration-color: var(--primary-bright);
+}
 
 /* ---------- PROCESSO ---------- */
 .process-list {
