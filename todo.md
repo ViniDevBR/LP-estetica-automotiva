@@ -12,4 +12,3 @@ Trocar o placeholder `SEU-DOMINIO.com.br` pelo domínio real nos seguintes arqui
 ## Pendências de EEAT (dados que só o cliente tem)
 
 - [ ] **CNPJ** — adicionar no rodapé do site e no JSON-LD (`taxID`). Sinal de legitimidade importante para negócio brasileiro.
-- [ ] **Ano de fundação / tempo de mercado** — hoje omitido de propósito por falta do dado real.
