@@ -168,6 +168,17 @@ summary:focus-visible {
 }
 #particles-js canvas { display: block; }
 
+/* Camada fixa de partículas atrás do conteúdo, do fim da hero até o
+   rodapé — não rola com a página, fica parada enquanto o resto passa
+   por cima (hero e #scroll-container têm z-index:2, cobrindo ela). */
+#particles-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+#particles-bg canvas { display: block; }
+
 .hero-inner {
   position: relative;
   max-width: 46vw;

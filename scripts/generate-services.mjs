@@ -14,7 +14,7 @@ const OUT_DIR = join(ROOT, 'servicos');
 const SVC_IMAGES_DIR = join(ROOT, 'assets', 'images', 'services');
 
 const WHATSAPP_NUMBER = '5519993097721';
-const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2308090b'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='30' fill='%236fa8ff' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E";
+const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2308090b'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='30' fill='%23f5cc1f' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E";
 
 // Placeholders até termos fotos reais de antes/depois por serviço.
 const PLACEHOLDER_BEFORE = '../assets/images/shot-detailer-inspection.webp';

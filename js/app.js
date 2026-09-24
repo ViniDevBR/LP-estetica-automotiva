@@ -230,6 +230,9 @@
   function initParticles() {
     if (typeof particlesJS === 'undefined' || !document.getElementById('particles-js')) return;
     particlesJS.load('particles-js', 'assets/particles.json');
+    if (document.getElementById('particles-bg')) {
+      particlesJS.load('particles-bg', 'assets/particles-bg.json');
+    }
   }
 
   initParticles();
