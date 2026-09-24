@@ -6,8 +6,6 @@
    =================================================================== */
 
 :root {
-  --header-h: 84px; /* fallback; js/app.js mede o valor real do .site-header */
-
   --void: #08090b;
   --graphite: #131519;
   --graphite-2: #1b1e23;
@@ -29,9 +27,10 @@
   --text-photo-dim: #d3d7dc;
 
   --void-a22: rgba(8, 9, 11, 0.22);
-  --void-a60: rgba(8, 9, 11, 0.603);
+  --void-a55: rgba(8, 9, 11, 0.55);
   --void-a85: rgba(8, 9, 11, 0.85);
   --void-a86: rgba(8, 9, 11, 0.86);
+  --void-a88: rgba(8, 9, 11, 0.88);
   --void-a92: rgba(8, 9, 11, 0.92);
 
   --shadow-40: rgba(0, 0, 0, 0.4);
@@ -40,11 +39,4 @@
   --font-display: 'Bebas Neue', sans-serif;
   --font-body: 'Montserrat', sans-serif;
   --font-accent: 'Montserrat', sans-serif;
-}
-
-/* ---------- SERVIÇOS ---------- */
-/* Variáveis usadas somente em css/services.css (páginas /servicos/*.html) */
-:root {
-  --void-a55: rgba(8, 9, 11, 0.55);
-  --void-a88: rgba(8, 9, 11, 0.88);
 }

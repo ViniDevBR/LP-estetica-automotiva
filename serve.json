@@ -2,7 +2,7 @@
   "headers": [
     {
       "source": "**/*.@(webp|jpg|jpeg|png|avif|svg)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
     },
     {
       "source": "**/*.@(woff|woff2)",

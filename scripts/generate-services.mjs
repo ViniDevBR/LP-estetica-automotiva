@@ -501,11 +501,11 @@ ${jsonLd(svc)}
         <h4>Diferenciais técnicos</h4>
         <ul class="seo-tags">
           <li>Medição de espessura de verniz</li>
+          <li>Profissional do Ano — DetailerFest Brasil 2026</li>
+          <li>Membro IDA — International Detailing Association</li>
           <li>Certificação Colortek Leather</li>
           <li>Certificação IDC</li>
-          <li>Membro IDA — International Detailing Association</li>
           <li>Linha GZOX / Prospec</li>
-          <li>Profissional do Ano — Detailerfest 2025</li>
           <li>Avaliação técnica antes do serviço</li>
         </ul>
       </div>

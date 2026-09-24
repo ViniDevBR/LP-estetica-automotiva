@@ -9,13 +9,13 @@
 * { box-sizing: border-box; }
 
 html {
-  background: var(--void);
+  background: var(--graphite-2);
   scroll-behavior: auto;
 }
 
 body {
   margin: 0;
-  background: var(--void);
+  background: var(--graphite-2);
   color: var(--text);
   font-family: var(--font-body);
   font-size: 16px;
@@ -61,42 +61,6 @@ summary:focus-visible {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
   }
-}
-
-/* ---------- LOADER ---------- */
-#loader {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  background: var(--void);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
-}
-#loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-.loader-brand {
-  width: 260px;
-  height: auto;
-}
-#loader-bar-track {
-  width: 220px;
-  height: 2px;
-  background: var(--graphite-3);
-}
-#loader-bar {
-  height: 100%;
-  width: 0%;
-  background: var(--primary-bright);
-  transition: width 0.2s ease;
-}
-#loader-percent {
-  font-family: var(--font-accent);
-  font-size: 0.75rem;
-  color: var(--text-faint);
-  letter-spacing: 0.1em;
 }
 
 /* ---------- HEADER ---------- */
@@ -176,7 +140,10 @@ summary:focus-visible {
 .hero-standalone {
   position: relative;
   min-height: 100vh;
-  background: var(--void);
+  background-image: linear-gradient(180deg, var(--void-a55) 0%, var(--void-a88) 70%, var(--void) 100%),
+    url('../assets/images/hero-bg.webp');
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -279,14 +246,14 @@ summary:focus-visible {
   padding: 1rem 1.8rem;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 .btn-primary {
   background: var(--primary-bright);
   color: var(--void);
   animation: cta-pulse 2.6s ease-in-out infinite;
 }
-.btn-primary:hover { transform: translateY(-2px); background: var(--primary-bright-hover); }
+.btn-primary:hover { background: var(--primary-bright-hover); }
 .btn-secondary {
   border-color: var(--hairline-strong);
   color: var(--text);
@@ -373,27 +340,6 @@ summary:focus-visible {
   .scroll-indicator { display: none; }
 }
 
-/* ---------- CANVAS + OVERLAY ---------- */
-.canvas-wrap {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  clip-path: circle(0% at 50% 50%);
-  will-change: clip-path;
-}
-#canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-#canvas-tint {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  background: var(--void-a60);
-  pointer-events: none;
-}
-
 /* ---------- MARQUEE ---------- */
 .marquee-wrap {
   position: fixed;
@@ -431,7 +377,6 @@ summary:focus-visible {
   margin: 16vh 0;
 }
 .scroll-section:first-child { margin-top: 0; }
-.scroll-section:last-child { margin-bottom: 0; }
 
 .marquee-trigger {
   height: 26vh;
@@ -456,27 +401,10 @@ summary:focus-visible {
 #depoimentos.align-left { padding-left: 6vw; padding-right: 6vw; }
 #depoimentos .section-inner-wide { max-width: 100%; }
 
-/* FAQ dentro do sticky: mesma quebra — ocupa a largura toda do card em
-   vez de ficar numa coluna estreita com metade da tela vazia. */
+/* FAQ: mesma quebra — ocupa a largura toda em vez de ficar numa coluna
+   estreita com metade da tela vazia. */
 #faq.align-right { padding-left: 6vw; padding-right: 6vw; }
 #faq .section-inner-wide { max-width: 100%; }
-
-/* Depoimentos e FAQ: o header é fixed e sobrepõe o topo do card sticky —
-   sem isso o conteúdo nasce colado nele. padding-top reserva exatamente
-   a altura do header (a área útil vira "100vh - header"), e o flex
-   centraliza o conteúdo dentro do que sobra; "safe center" evita cortar
-   o início quando o conteúdo é mais alto que o espaço disponível. */
-#faq, #depoimentos {
-  padding-top: var(--header-h);
-  display: flex;
-  flex-direction: column;
-  justify-content: safe center;
-}
-#faq .section-inner-wide,
-#depoimentos .section-inner-wide {
-  width: 100%;
-  margin: 0;
-}
 
 .section-heading {
   font-family: var(--font-display);
@@ -656,75 +584,6 @@ summary:focus-visible {
   max-width: 30rem;
 }
 
-#processo {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* ---------- STICKY OUTRO (Stats + Depoimentos + FAQ + CTA) ---------- */
-.sticky-outro {
-  position: relative;
-  height: 450vh;
-}
-.sticky-outro-inner {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
-  border-top: 20px solid var(--primary);
-  isolation: isolate;
-}
-.sticky-outro-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image: url('../frames/frame_0250.webp');
-  background-size: cover;
-  background-position: center;
-}
-.sticky-outro-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: var(--void);
-  opacity: 0.88;
-}
-section.outro-segment {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  opacity: 0;
-  /* Só o segmento ativo pode receber wheel/scroll — sem isso, o último
-     do DOM (#contato) fica sempre por cima capturando o scroll mesmo
-     invisível, e o scroll interno dos outros morre. */
-  pointer-events: none;
-  max-height: 100vh;
-  padding-top: 8vh;
-  padding-bottom: 8vh;
-  box-sizing: border-box;
-  overflow-y: auto;
-  /* "auto" (não "contain"): quando o conteúdo interno acaba de rolar,
-     o wheel precisa encadear pro scroll da página pra avançar o sticky —
-     "contain" prendia o wheel sem escape em segmentos sem overflow
-     (stats/contato) e travava no fim do faq/depoimentos. */
-  overscroll-behavior: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge legado */
-}
-section.outro-segment.is-active {
-  pointer-events: auto;
-}
-section.outro-segment::-webkit-scrollbar { display: none; }
-
-@media (max-width: 768px) {
-  .sticky-outro-inner { border-top-width: 12px; }
-}
-
 /* ---------- STATS ---------- */
 .section-stats {
   display: flex;
@@ -800,14 +659,14 @@ review-slider {
   }
 }
 .testimonial-card p {
-  font-size: 0.92rem;
+  font-size: 0.8rem;
   color: var(--text-dim);
   font-style: italic;
   margin: 0.8rem 0;
 }
 .testimonial-card cite {
   font-family: var(--font-accent);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   color: var(--text-faint);
   font-style: normal;
   letter-spacing: 0.05em;
